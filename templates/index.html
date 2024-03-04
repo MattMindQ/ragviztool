@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Data Analysis Tool</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <!-- Error Message Container -->
+    <div id="error-container" class="error-container" style="display: none;"></div>
+
+    <div class="container">
+        <h1>Resume Data Analysis and Visualization</h1>
+        <p>Analyze and visualize semantic relationships between different job titles or experiences.</p>
+
+        <!-- Form for adding new experiences or job titles -->
+        <div class="input-form">
+            <form id="text-input-form">
+                <input type="text" id="text-input" placeholder="Enter a job title or experience" aria-label="Text input">
+                <button type="submit">Add</button>
+            </form>
+        </div>
+
+        <!-- Input for chatbot query -->
+        <div class="input-form">
+            <form id="chatbot-query-form">
+                <input type="text" id="chatbot-query" placeholder="Enter chatbot query" aria-label="Chatbot query input">
+                <button type="submit">Set Query</button>
+            </form>
+        </div>
+
+        <!-- Drag and Drop Area for JSON File Upload -->
+        <div class="upload-form">
+            <div id="drop-area" class="drop-area">
+                <form id="file-upload-form" class="upload-form">
+                    <input type="file" id="file-input" hidden>
+                    <label for="file-input" class="file-input-label">Drag and drop a file or click to select</label>
+                </form>
+                <p id="file-upload-status" class="file-upload-status">No file uploaded.</p>
+            </div>
+        </div>
+
+        <!-- Lists for displaying words -->
+        <h2>Words List</h2>
+        <ul id="word-list" class="word-list"></ul>
+
+        <!-- 3D Visualization Container -->
+        <div id="visualization-container" class="visualization-container">
+            <h2>3D Visualization</h2>
+            <p>Explore the semantic distances in 3D space.</p>
+            <div id="myDiv" class="plot-container">
+                <p id="central-text" class="central-text"></p> <!-- Added central text display -->
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</body>
+</html>
